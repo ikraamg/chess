@@ -1,5 +1,3 @@
-require 'mkmf'
-
 module Chess
   # Use Gnuchess to I.A. _(Only a draft)_.
   #
@@ -56,7 +54,11 @@ module Chess
 
       # Raise an exception if Gnuchess is not installed
       def raise_if_gnuchess_is_not_installed
-        raise 'You must install Gnuchess to use the module Chess::Gnuchess!' unless find_executable0('gnuchess')
+        raise 'You must install Gnuchess to use the module Chess::Gnuchess!' unless gnuchess_installed?
+      end
+
+      def gnuchess_installed?
+        ENV.fetch('PATH', '').split(File::PATH_SEPARATOR).any? { |dir| File.executable?(File.join(dir, 'gnuchess')) }
       end
     end
 
