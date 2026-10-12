@@ -1,5 +1,12 @@
 # Chess
 
+## Changes in this fork
+
+This is a version of [pioz/chess](https://github.com/pioz/chess) modified by Ikraam Ghoor for TRMNL, released under the same LGPLv3 license. Original work © Enrico Pilotto.
+
+- 2026-10-12: `ext/chess/common.h` uses the standard `bool` from `stdbool.h`, so the extension builds on Rubies whose build force-includes it (mise's prebuilt Rubies). Offered upstream as pioz/chess#41.
+- 2026-10-12: `lib/chess/gnuchess.rb` looks up the `gnuchess` binary on `PATH` instead of requiring `mkmf`, which mixed its build helpers into every object of the host application.
+
 ![build](https://github.com/pioz/chess/workflows/Ruby/badge.svg)
 [![codecov](https://codecov.io/gh/pioz/chess/branch/master/graph/badge.svg?token=bsSUOW6wWa)](https://codecov.io/gh/pioz/chess)
 
